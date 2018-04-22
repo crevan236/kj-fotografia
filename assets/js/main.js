@@ -2,7 +2,7 @@
 window.addEventListener('load', function() {
     manageBars();
 
-    const url = window.location.hash;
+    let url = window.location.hash;
     if (url.length === 0) {
         window.location.hash = '#home';
         url = '#home';
