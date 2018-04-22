@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>{{gallery_title}}</title>
+	<meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="{{global.page_description}}">
+	<meta name="keywords" content="{{global.page_keywords}}">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="/assets/css/skeleton.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Poiret+One&amp;subset=latin-ext" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css">
+</head>
+
+<body>
+	<main class="container-fluid no-padding">
+		<section id="gallery" class="row">
+            <div class="returner" ><a href="../#portfolio" >{{return_link_name}}</a></div>
+			<div class="col gallery-wrapper">
+                {{#each images}}
+                    <a href="{{this.img}}" data-lightbox="gallery">
+                        <img src="{{this.thumbnail}}" alt="{{this.alternative}}" />
+                    </a>
+                {{/each}}
+            </div>
+		</section>
+	</main>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js"></script>
+<script src="/assets/js/main.js" ></script>
+<script>
+
+</html>

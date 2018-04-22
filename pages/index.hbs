@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>{{global.page_title}}</title>
+	<meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="{{global.page_description}}">
+	<meta name="keywords" content="{{global.page_keywords}}">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="/assets/css/skeleton.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Poiret+One&amp;subset=latin-ext" rel="stylesheet"> 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.6.0/tiny-slider.css">
+</head>
+
+<body>
+	<nav class="navbar" >
+		<div class="logo-box">
+			<img class="page-logo" src="{{global.page_logo}}" />
+		</div>
+		<div class="bars"></div>
+		<ul class="menu">
+			<li><a id="link-home" class="menu-item" href="#home">Home</a></li>
+			<li><a id="link-portfolio" class="menu-item" href="#portfolio">Portfolio</a></li>
+			<li><a id="link-about" class="menu-item" href="#about">O nas</a></li>
+			<li><a id="link-offer" class="menu-item" href="#offer">Oferta</a></li>
+			<li><a id="link-contact" class="menu-item" href="#contact">Kontakt</a></li>
+		</ul>
+	</nav>
+	<main id="pt-main" class="container-fluid no-padding">
+		<section id="home" class="row panel">
+			<div class="col">
+				<div class="slider">
+					{{#each landing}}
+						<div class="slide" >
+							<img 
+							srcset="
+								{{this.src_small}} 480w,
+								{{this.src_medium}} 1024w,
+								{{this.src_large}} 1920w,
+							"
+							sizes="
+								(max-width: 480px) 480px,
+								(max-width: 1024px) 1024px,
+								1920px
+							"
+							src="{{this.src_large}}" alt="alider image" class="slider-img" />
+						</div>
+					{{/each}}
+				</div>
+			</div>
+		</section>
+		<section id="portfolio" class="row panel">
+			<div class="col content">
+				<div class="row">
+	  				{{#each portfolio}}
+						<div class="col-sm-12 col-md-6 col-xl-3 img-box" style="background-image: url('{{img}}')" >
+							<a href="/cat_{{add @index 1}}" class="portfolio-link" >
+								<div class="img-desc">
+									<h4>{{ category_name }}</h4>
+								</div>
+								<div class="hover-shadow">
+								</div>
+							</a>
+						</div>
+					{{/each}}
+  				</div>
+			</div>
+		</section>
+		<div class="container">
+			<section id="about" class="row panel">
+				<div class="container">
+					<div class="row">
+						<div class="col content">
+							<div class="row">
+								<div class="col">
+									<h2 class="section-title">{{about_title}}</h2>
+								</div>
+							</div>
+							{{#each about}}
+								{{#if to_right}}
+									<div class="row">
+										<div class="col">
+											<p>{{{description}}}</p>
+										</div>
+										<div class="col-12 col-sm-6 col-xl-4">
+											<img class="img-about" src="{{img}}" alt="O nas" />
+										</div>
+									</div>
+								{{else}}
+									<div class="row">
+										<div class="col-12 col-sm-6 col-xl-4">
+											<img class="img-about" src="{{img}}" alt="O nas" />
+										</div>
+										<div class="col">
+											<p>{{{description}}}</p>
+										</div>
+									</div>
+								{{/if}}
+							{{/each}}
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="offer" class="row panel">
+				<div class="col content">
+					<div class="row">
+						<div class="col">
+							<h2 class="section-title">{{pricing_title}}</h2>
+						</div>
+					</div>
+					<div class="row">
+						{{#each pricing}}
+							<div class="col-12 col-sm-12 col-md-6 pricing-box">
+								<div class="row">
+									<div class="col" >
+										<h3>{{this.title}}</h3>
+										<hr>
+										<p>{{{this.description}}}</p>
+									</div>
+								</div>
+							</div>
+						{{/each}}
+					</div>
+				</div>
+			</section>
+			<section id="contact" class="row panel">
+				<div class="col content">
+					<div class="row">
+						<div class="col">
+							<h2 class="section-title" >{{contact.contact_title}}</h2>
+							<p>{{{contact.description}}}</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12 col-md-4">
+							<div class="contact-box">
+								<img class="contact-icon" src="/assets/img/phone.svg" >
+								<h6 class="contact-details" >{{contact.contact_email}}</h6>
+							</div>
+						</div>
+						<div class="col-12 col-md-4">
+							<div class="contact-box">
+								<img class="contact-icon" src="/assets/img/mail.svg" >
+								<h6 class="contact-details" >{{contact.contact_phone}}</h6>
+							</div>
+						</div>
+						<div class="col-12 col-md-4">
+							<div class="contact-box">
+								<img class="contact-icon" src="/assets/img/facebook-logo.svg" >
+								<h6 class="contact-details" ><a href="{{contact.contact_facebook}}" target="_blank" >Facebook</a></h6>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="row">
+								<div class="col pt-4">
+									<h4>{{contact.contact_form}}</h4>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col" style="flex-direction: column" >
+									<form class="feedback_form">
+										<label for="email">{{global.form.email_label}}</label>
+										<input class="u-full-width" placeholder="{{global.form.email_placeholder}}" name="email" id="email" type="email">
+										<label for="message">{{global.form.message_label}}</label>
+										<textarea class="u-full-width" placeholder="{{global.form.message_placeholder}}" name="message" id="message"></textarea>
+										<input class="button-primary mt-2" value="{{global.form.button_text}}" type="submit">
+									</form>
+									{{>footer}}
+								</div>
+							</div>
+							<div style="visibility: hidden" >Icons made by <a href="https://www.flaticon.com/authors/zurb" title="Zurb">Zurb</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</main>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.6.0/min/tiny-slider.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="/assets/js/main.js" ></script>
+{{!-- <script src="/assets/js/pagetransitions.js"></script> --}}
+<script>
+  var slider = tns({
+    container: '.slider',
+    items: 1,
+    slideBy: 'page',
+    autoplay: true,
+	controls: false,
+	nav: false,
+	arrowKeys: true,
+	autoplayButtonOutput: false,
+	mode: 'gallery',
+	speed: 2000
+  });
+</script>
+<script type="text/javascript">
+	var feedback_form = $('.feedback_form');
+	feedback_form.submit(function (e) {
+		var form_data = {};
+		feedback_form.serializeArray().map(function (x) { form_data[x.name] = x.value })
+		$.get(get_base_url() + '/submit_feedback', form_data, function (data) {
+			location.reload()
+		})
+		e.preventDefault()
+	})
+	// thing to get around using localhost:3000 with api endpoints only available on port 5000
+	function get_base_url () {
+		return (window.location.href.indexOf('localhost') + 1)
+			?	'http://localhost:5000'
+			:	''
+	}
+</script>
+</html>
