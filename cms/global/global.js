@@ -13,5 +13,6 @@
 		message_placeholder: 'Treść',
 		button_text: 'Wyślij',
 		receiver_email: ''
-	}
+	},
+	return_link_name: 'Powrót do kategorii'
 })

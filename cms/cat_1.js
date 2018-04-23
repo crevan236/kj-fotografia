@@ -1,6 +1,5 @@
 ({
-    gallery_title: 'KJ fotografia | Galeria',
-    return_link_name: 'Kategorie',
+	gallery_title: 'KJ fotografia | Galeria',
 	images: [
 		{
 			img: '/remote/direct_uploads/1524241641_cayetano-gil-503039-unsplash.jpg',
