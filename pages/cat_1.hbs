@@ -21,10 +21,12 @@
 		<section id="gallery" class="row">
             <div class="returner" ><a href="../#portfolio" >{{global.return_link_name}}</a></div>
 			<div class="col gallery-wrapper">
-                {{#each images}}
-                    <a href="{{this.img}}" data-lightbox="gallery">
-                        <img src="{{this.thumbnail}}" alt="{{this.alternative}}" />
-                    </a>
+				{{#each images}}
+					<div class="card-pin">
+						<a href="{{this.img}}" data-lightbox="gallery">
+                		    <img src="{{this.thumbnail}}" alt="{{this.alternative}}" class="gallery-img" />
+                		</a>
+					</div>
                 {{/each}}
             </div>
 		</section>
