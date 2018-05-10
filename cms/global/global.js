@@ -12,7 +12,8 @@
 		message_label: 'Twoja wiadomość',
 		message_placeholder: 'Treść',
 		button_text: 'Wyślij',
-		receiver_email: ''
+		receiver_email: 'espane236@gmail.com',
+		success_message: 'Wiadomość wysłano pomyślnie'
 	},
 	return_link_name: 'Powrót do kategorii'
 })

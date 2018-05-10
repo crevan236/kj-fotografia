@@ -170,8 +170,10 @@
 										<input class="u-full-width" placeholder="{{global.form.email_placeholder}}" name="email" id="email" type="email">
 										<label for="message">{{global.form.message_label}}</label>
 										<textarea class="u-full-width" placeholder="{{global.form.message_placeholder}}" name="message" id="message"></textarea>
+										<input type="hidden" name="receiver" value="{{global.form.receiver_email}}" >
 										<input class="button-primary mt-2" value="{{global.form.button_text}}" type="submit">
 									</form>
+									<div class="message-sent-success" style="display: none" >{{global.form.success_message}}</div>
 									{{>footer}}
 								</div>
 							</div>
@@ -186,7 +188,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.6.0/min/tiny-slider.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="/assets/js/main.js" ></script>
-{{!-- <script src="/assets/js/pagetransitions.js"></script> --}}
 <script>
   var slider = tns({
     container: '.slider',
@@ -204,10 +205,16 @@
 <script type="text/javascript">
 	var feedback_form = $('.feedback_form');
 	feedback_form.submit(function (e) {
+		var messageBox = document.querySelector('.message-sent-success');
 		var form_data = {};
 		feedback_form.serializeArray().map(function (x) { form_data[x.name] = x.value })
 		$.get(get_base_url() + '/submit_feedback', form_data, function (data) {
-			location.reload()
+			feedback_form[0][0].value = '';
+			feedback_form[0][1].value = '';
+			messageBox.style.display = 'block';
+			setTimeout(function () {
+				messageBox.style.display = 'none';
+			}, 10000);
 		})
 		e.preventDefault()
 	})

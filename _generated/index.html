@@ -271,8 +271,10 @@
 										<input class="u-full-width" placeholder="text@text.gmail.com" name="email" id="email" type="email">
 										<label for="message">Twoja wiadomość</label>
 										<textarea class="u-full-width" placeholder="Treść" name="message" id="message"></textarea>
+										<input type="hidden" name="receiver" value="espane236@gmail.com" >
 										<input class="button-primary mt-2" value="Wyślij" type="submit">
 									</form>
+									<div class="message-sent-success" style="display: none" >Wiadomość wysłano pomyślnie</div>
 									<div class="row footer-wrapper">
 										<div class="col footer pt-4">
 											Copyright &copy; Jeziorscy fotografia | Wszelkie prawa zastrzeżone.
@@ -307,10 +309,16 @@
 <script type="text/javascript">
 	var feedback_form = $('.feedback_form');
 	feedback_form.submit(function (e) {
+		var messageBox = document.querySelector('.message-sent-success');
 		var form_data = {};
 		feedback_form.serializeArray().map(function (x) { form_data[x.name] = x.value })
 		$.get(get_base_url() + '/submit_feedback', form_data, function (data) {
-			location.reload()
+			feedback_form[0][0].value = '';
+			feedback_form[0][1].value = '';
+			messageBox.style.display = 'block';
+			setTimeout(function () {
+				messageBox.style.display = 'none';
+			}, 10000);
 		})
 		e.preventDefault()
 	})

@@ -9,6 +9,7 @@
 	"author": "author goes here",
 	"license": "MIT",
 	"dependencies": {
+		"@sendgrid/mail": "^6.2.1",
 		"enduro": "*",
 		"enduro_quill": "^1.0.6"
 	}
