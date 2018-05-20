@@ -15,6 +15,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Poiret+One&amp;subset=latin-ext" rel="stylesheet"> 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.6.0/tiny-slider.css">
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -62,6 +64,20 @@
 								1920px
 							"
 							src="/remote/direct_uploads/1520619960_IMG_5.jpg" alt="alider image" class="slider-img" />
+						</div>
+						<div class="slide" >
+							<img 
+							srcset="
+								/remote/direct_uploads/1526733588_768x512(6).jpg 480w,
+								/remote/direct_uploads/1526733587_cintia-matteo-230079-unsplash.jpg 1024w,
+								/remote/direct_uploads/1526733583_768x512(6).jpg 1920w,
+							"
+							sizes="
+								(max-width: 480px) 480px,
+								(max-width: 1024px) 1024px,
+								1920px
+							"
+							src="/remote/direct_uploads/1526733583_768x512(6).jpg" alt="alider image" class="slider-img" />
 						</div>
 				</div>
 			</div>
@@ -272,7 +288,7 @@
 										<label for="message">Twoja wiadomość</label>
 										<textarea class="u-full-width" placeholder="Treść" name="message" id="message"></textarea>
 										<input type="hidden" name="receiver" value="espane236@gmail.com" >
-										<input class="button-primary mt-2" value="Wyślij" type="submit">
+										<button class="button-primary mt-2 g-recaptcha" data-sitekey="6LfRSVoUAAAAAITaJtMpkXiIyzQCJ-xf4moG6Dqh" data-callback='onSubmit'>Wyślij</button>
 									</form>
 									<div class="message-sent-success" style="display: none" >Wiadomość wysłano pomyślnie</div>
 									<div class="row footer-wrapper">
@@ -328,5 +344,9 @@
 			?	'http://localhost:5000'
 			:	''
 	}
+
+	function onSubmit(token) {
+      $('.feedback_form').submit();
+    }
 </script>
 </html>

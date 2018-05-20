@@ -15,6 +15,14 @@
 			$src_medium_type: 'image',
 			src_small: '/remote/direct_uploads/1520619970_IMG_5.jpg',
 			$src_small_type: 'image'
+		},
+		{
+			src_large: '/remote/direct_uploads/1526733583_768x512(6).jpg',
+			$src_large_type: 'image',
+			src_medium: '/remote/direct_uploads/1526733587_cintia-matteo-230079-unsplash.jpg',
+			$src_medium_type: 'image',
+			src_small: '/remote/direct_uploads/1526733588_768x512(6).jpg',
+			$src_small_type: 'image'
 		}
 	],
 	portfolio_title: 'Portfolio',

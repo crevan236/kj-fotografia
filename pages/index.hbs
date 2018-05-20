@@ -15,6 +15,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Poiret+One&amp;subset=latin-ext" rel="stylesheet"> 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.6.0/tiny-slider.css">
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -171,7 +173,8 @@
 										<label for="message">{{global.form.message_label}}</label>
 										<textarea class="u-full-width" placeholder="{{global.form.message_placeholder}}" name="message" id="message"></textarea>
 										<input type="hidden" name="receiver" value="{{global.form.receiver_email}}" >
-										<input class="button-primary mt-2" value="{{global.form.button_text}}" type="submit">
+										{{!-- <input class="button-primary mt-2" value="{{global.form.button_text}}" type="submit"> --}}
+										<button class="button-primary mt-2 g-recaptcha" data-sitekey="6LfRSVoUAAAAAITaJtMpkXiIyzQCJ-xf4moG6Dqh" data-callback='onSubmit'>{{global.form.button_text}}</button>
 									</form>
 									<div class="message-sent-success" style="display: none" >{{global.form.success_message}}</div>
 									{{>footer}}
@@ -224,5 +227,9 @@
 			?	'http://localhost:5000'
 			:	''
 	}
+
+	function onSubmit(token) {
+      $('.feedback_form').submit();
+    }
 </script>
 </html>
