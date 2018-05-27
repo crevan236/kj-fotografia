@@ -3,7 +3,7 @@ const local_app = function () {}
 const sgMail = require('@sendgrid/mail');
 
 local_app.prototype.init = function (app) {
-	sgMail.setApiKey('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');
+	sgMail.setApiKey('aloha');
 
 	app.get('/submit_feedback', (req, res) => {
 		const new_feedback = req.query
